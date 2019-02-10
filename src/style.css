@@ -1,1 +1,26 @@
-/* Acá va tu código */
+body {
+    background-color: rgb(173, 195, 209);
+}
+
+#root {
+    background-color: rgb(89, 173, 184);
+}
+
+#data_container {
+    background-color: blue;
+}
+
+#result_container {
+    background-color: yellow;
+}
+ 
+
+    
+/*#data_container{
+   display: none;
+}*/
+
+#result_container{
+    display: none;
+ }
+
