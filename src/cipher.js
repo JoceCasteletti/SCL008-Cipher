@@ -1,35 +1,62 @@
 window.cipher = {
   encode: (offset, message)=> {
-  let resultencode ='';
+    let resultencode ='';
 
-  for (let i=0; i< message.length; i++) {
-    let ascii_code = message.charCodeAt(i);
+    for (let i=0; i < message.length; i++) {
+      let asciiCode = message.charCodeAt(i);
 
+      if (asciiCode >= 65 && asciiCode <=90){
+        asciiCode = ((asciiCode - 65 + offset) % 26) + 65;
+      }
 
-    if (ascii_code >= 65 && ascii_code <=90){
-       ascii_code = ((ascii_code - 65 + offset) % 26) + 65;
-    }
-    resultencode = resultencode + String.fromCharCode(ascii_code);
-  } 
-   
-  return resultencode;
+      if (asciiCode >= 97 && asciiCode <=122){
+        asciiCode = ((asciiCode - 97 + offset) % 26) + 97;
+      }
+
+      if (asciiCode >= 48 && asciiCode <=57){
+        asciiCode = ((asciiCode - 48 + offset) % 10) + 48;
+      }
+
+      if (asciiCode == 32) {
+        asciiCode = ((asciiCode - 32 + offset) % 1) + 32;
+      }
+      
+      resultencode = resultencode + String.fromCharCode(asciiCode);
+    } 
+    
+    return resultencode;
 
   },
   
-  decode: (offset, message)=> {
+  decode: (offset, message) => {
     let resultdecode ='';
+
+    offset =  26 - offset;
   
-  for (let i=0; i=message.length;i++);{
-    let ascii_decode = message.charCodeAt(i);
-  
-  
-      if (ascii_decode >= 65 && ascii_code <=90){
-         ascii_decode = ((ascii_code - 65 - offset) % 26) + 65;
-      }
-      resultdecode = resultdecode + String.fromCharCode(ascii_code);
-    } 
-     
-    return resultdecode;
+    for (let i=0; i < message.length; i++) {
+      let asciiCode = message.charCodeAt(i);
+    
+    
+        if (asciiCode >= 65 && asciiCode <=90) {
+          asciiCode = ((asciiCode - 65 + offset) % 26) + 65;
+        }
+
+        if (asciiCode >= 97 && asciiCode <=122) {
+          asciiCode = ((asciiCode - 97 + offset) % 26) + 97;
+        }
+
+        if (asciiCode == 32) {
+          asciiCode = ((asciiCode - 32 + offset) % 1) + 32;
+        }
+
+        if (asciiCode == 32) {
+          asciiCode = ((asciiCode - 32 + offset) % 1) + 32;
+        }
+
+        resultdecode = resultdecode + String.fromCharCode(asciiCode);
+      } 
+      
+      return resultdecode;
 
     }
   }
