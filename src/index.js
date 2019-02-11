@@ -1,89 +1,71 @@
 const encode = document.getElementById('encode');
 const decode = document.getElementById('decode');
-const home = document.getElementById('home');
-
-const link = document.getElementById('test');
+const start = document.getElementById('start');
+const clean = document.getElementById('clean');
+const sendEmail = document.getElementById('send_email');
 
 encode.addEventListener('click', (evento) => {
     evento.preventDefault();
-        
-    const input = document.getElementById('encode');
 
-    let valueInput= inputName.value; //llamar la variable input
+    const message = document.getElementById('encode_message').value;
+    const offset = parseInt(document.getElementById('encode_offset').value);
 
-
-    document.getElementById('root').innerHTML
-    +=cipher.encode(valueinput); //'Ale'
-
-})
-
-
-
-
-
-/* primera......
-
-
-const encode = () => {
-    const message = document.getElementById("message").value;
-    const offset = document.getElementById("offset").value;
-
-    window.cipher.encode(offset, message);
-};
-
-const cambiarTitulo = () => {
-    document.getElementById("titulo").innerHTML = "CAMBIE!";
-}
-
-const decode = () => {
-    const message = document.getElementById("message").value;2wa45rr
-    deweeeeeeeeeeeeeeeeeeeere
-    const offset = document.getElementById("offset").value;
-
-    window.cipher.decode(offset, message);
-};
-
-const events = () => {
-    document.getElementById("encode").addEventListener("click", encode);
-    document.getElementById("decode").addEventListener("click", cambiarTitulo);
-};
-
-encode() /*
-
-/* 1)
-hacer referencia al boton con su id.addEventListener("tipo de evento", () => {
-    const message = document.getElementById("message").value;
-    const offset = document.getElementById("offset").value;
-
-    window.cipher.encode(offset, message);
-})
-
-*/
-
-/* 2)
-function cipherText(offset, mensaje) {
-
-     let cipher_message = '';
-
-     for (let i = 0; i < mensaje.length; i++) {
-       let ascii_char = mensaje.charCodeAt(i);
-
-    if (ascii_char >= 65 && ascii_char <= 90) {
-       ascii_char = ((ascii_char - 65 + offset) % 26) + 65;
+    if (message.length > 0 && offset > 0) {
+        document.getElementById('result_container').style.display = 'block';
+        document.getElementById('result').value = cipher.encode(offset, message);
+    } else {
+        alert('Debe ingresar el mensaje y desplazamiento para continuar.');
     }
-       cipher_message = cipher_message + String.fromCharCode(ascii_char);
-return cipher_message;
-*/
+
+})
+
+decode.addEventListener('click', (evento) => {
+    evento.preventDefault();
+        
+    const message = document.getElementById('decode_message').value;
+    const offset = parseInt(document.getElementById('decode_offset').value);
+
+    if (message.length > 0 && offset > 0) {
+        document.getElementById('result_container').style.display = 'block';
+        document.getElementById('result').value = cipher.decode(offset, message);
+    } else {
+        alert('Debe ingresar el mensaje y desplazamiento para continuar.');        
+    }
+
+})
+
+start.addEventListener('click', (evento) => {
+    evento.preventDefault();
+
+    let name = document.getElementById('name').value;
+
+    if (name.length > 0) {
+
+        document.getElementById('welcome_name').innerHTML = `Bienvenid@ ${name}!`;
+        document.getElementById('encode_container').style.display = 'block';
+        document.getElementById('decode_container').style.display = 'block';
+
+        const elements = document.getElementsByClassName('gamestarted');
+        for (let i=0; i < elements.length; i++) {
+            elements[i].style.display = 'none';
+        }
+    
+    } else {
+        alert('Debe ingresar su nombre para continuar.');
+    }
 
 
+    clean.addEventListener('click', (event) => {
+        event.preventDefault();
 
+        document.getElementById('encode_message').value = "";
+        document.getElementById('encode_offset').value = "";
+        document.getElementById('decode_message').value = "";
+        document.getElementById('decode_offset').value = "";
+        document.getElementById('result').value = "";
+    })
 
-
-/* 3) document.getElementById('hello').addEventListener ('click', (evento) =>{
-   evento.preventDefault();
-
-   document.getElementById('welcome').style.display='none';
-   document.getElementById('coder').style.display='block';
-
-
-}) */
+    sendEmail.addEventListener('click', () => {
+        alert('Se acaba de enviar resultado E-mail');
+    })
+})
