@@ -1,26 +1,52 @@
+
+
 body {
-    background-color: rgb(173, 195, 209);
+    background-image: url(detective.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    background-color: black;
+
 }
 
 #root {
-    background-color: rgb(89, 173, 184);
+    background-color: rgba(240, 244, 245, 0.712);
+}
+
+#caesarimage {
+    max-width: 25%;
+
+} 
+.image_container {
+    text-align: left;
 }
 
 #data_container {
-    background-color: blue;
+    background-color: rgb(121, 151, 158);
 }
 
 #result_container {
-    background-color: yellow;
+    background-color: rgb(50, 104, 116);
+}
+
+/* Ocultar elementos al inicio */
+.hidden {
+    display: none;
 }
  
-
+#encode_message {
+    width: 25em;
+	height: 5em;
+	background-color: rgba(192,192,192,0.3);
+}
     
-/*#data_container{
-   display: none;
-}*/
 
-#result_container{
-    display: none;
- }
+#decode_message {
+    width: 25em;
+	height: 5em;
+	background-color: rgba(192,192,192,0.3);
+}
 
+footer {
+    margin-top: 40px;
+}

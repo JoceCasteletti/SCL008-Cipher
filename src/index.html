@@ -6,56 +6,60 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="welcome">
-      <h1 id="welcome_name">Bienvenid@!</h1>
-      <div class="gamestarted">
-          <p>
-              esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina <br>
-            aajayisjspohdslfjfj
-          </p>
-          <p>
-              esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina esta es una pagina <br>
-            aajayisjspohdslfjfj
-          </p>
-      </div>
-      <div></div>
-      <p>Instrucciones</p>
-      <div></div>
-      <ul>
-          <li>-padhdkjd</li>
-          <li>-yaykddkpokl</li>
-          <li>-lheasajdmb</li>
-          <li>-vacsnsams</li>
-      </ul>
-      <div class="gamestarted">
-          <p>Ingresa tu nombre para continar, porfavor</p>
-          <input id="name" type="text" placeholder="Nombre">
-          
-          <button id="start" type="button">Comenzar</button>
-      </div>
-    </div>  
-
-    <div id="encode_container" class="data_container hidden">
-        <h4>Ingrese el mensaje a codificar</h4>
-        <input id="encode_message" type="text" placeholder="Mensaje">
-        <input id="encode_offset" type="number" placeholder="Desplazamiento">
-        <button id="encode" type="button">Codificar</button>
+    <div id="root">
+        <div id="welcome">
+            <h1 id="welcome_name">Investigador privado</h1>
+            <div class="gamestarted">
+                <p>
+                  Te damos la bienvenida a nuestra aplicación "Investigador privado", con esta aplicación 
+                  podrás codificar mensajes con el objetivo de hacer difícil la lectura del mensaje original 
+                  por terceros. Este mensaje codificado podra ser decodificado por tu destinatario de manera
+                  sencilla si tú y tu destinatario conocen el secreto en común.
+                </p>
+            
+            </div>
+            <div></div>
+            <p><b>Instrucciones:</b></p>
+            <div></div>
+            <ul>
+                <li>Ingrese su nombre y de click en comenzar.</li>
+                <li>Ingrese el mensaje que desea Codificar o Decodificar.</li>
+                <li>Indique el número secreto.</li>
+                <li>Haga click en Codificar o Decodificar según corresponda para ver el resultado.</li>
+                <li>Presione "Enviar resultado por E-mail" si desea compartir el mensaje.</li>
+                <li>Para escribir un nuevo texto a Codificar o Decodificar presione "Limpiar"</li>
+            </ul>
+            <div class="gamestarted">
+                <p>Ingresa tu nombre para continar, porfavor</p>
+                <input id="name" type="text" placeholder="Nombre">
+                
+                <button id="start" type="button">Comenzar</button>
+            </div>
+        </div>  
+      
+        <div id="encode_container" class="data_container hidden">
+            <h4>Ingrese el mensaje a codificar</h4>
+            <input id="encode_message" type="text" placeholder="Mensaje">
+            <input id="encode_offset" type="number" placeholder="Número secreto">
+            <button id="encode" type="button">Codificar</button>
+        </div>
+  
+        <div id="decode_container" class="data_container hidden">
+            <h4>Ingrese el mensaje a decodificar</h4>
+            <input id="decode_message" type="text" placeholder="Mensaje">
+            <input id="decode_offset" type="number" placeholder="Número secreto">
+            <button id="decode" type="button">Decodificar</button>
+        </div>
+    
+        <div id="result_container" class="hidden">
+            <h4>Resultado</h4>
+            <input id="result" type="text">
+            <button id="send_email">Enviar resultado por E-mail</button>
+            <button id="clean">Limpiar</button>
+        </div>
+        <footer>Todos los derechos reservados 2019.</footer>
     </div>
 
-    <div id="decode_container" class="data_container hidden">
-        <h4>Ingrese el mensaje a decodificar</h4>
-        <input id="decode_message" type="text" placeholder="Mensaje">
-        <input id="decode_offset" type="number" placeholder="Desplazamiento">
-        <button id="decode" type="button">Decodificar</button>
-    </div>
-
-    <div id="result_container" class="hidden">
-        <h6>Resultado</h6>
-        <input id="result" type="text">
-        <button id="send_email">Enviar resultado por E-mail</button>
-        <button id="clean">Limpiar todo</button>
-    </div>
-    <footer>Todos los derechos reservados 2019.</footer>
     <script src="cipher.js"></script>
     <script src="index.js"></script>
   </body>
